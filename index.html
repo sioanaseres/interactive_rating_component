@@ -54,8 +54,8 @@
             document.documentElement.classList.remove("js"); 
         </script>
      
-     <link rel="preload" href="" as="font" type="font/wff2" crossorigin="">
-     <link rel="preload" href="" as="font" type="font/wff2" crossorigin="">
+     <link rel="preload" href="https://sioanaseres.github.io/carturesti_homepage/resources/Montserrat-Regular.woff2" as="font" type="font/wff2" crossorigin="">
+     <link rel="preload" href="https://sioanaseres.github.io/carturesti_homepage/resources/Montserrat-ExtraBold.woff2" as="font" type="font/wff2" crossorigin="">
         <!-- browserul preia fontul inainte sa citeasca css-ul  --><!-- <link rel="preload" href="./Inter-roman.var.woff2" as="font" type="font/woff2" crossorigin/> -->
 
         <script defer src="script.js"></script>
@@ -186,13 +186,14 @@
         <main class="Main">
             <section class="Slider">
                 <nav class="SliderControls">
-                    <a href="#" class="SliderArrows SliderPrev" title = "Revino la imaginea precedenta">
+                    <a href="#" id="previousSlide" class="SliderArrows SliderPrev" title = "Revino la imaginea precedenta">
                         <img src="resources/icon-arrow.svg" class="SliderArrowImage" alt="Imaginea precedenta" width="48" height="60">
                     </a>
-                    <a href="#" class="SliderArrows SliderNext" title = "Mergi la imaginea urmatoare">
+                    <a href="#" id="nextSlide" class="SliderArrows SliderNext" title = "Mergi la imaginea urmatoare">
                         <img src="resources/icon-arrow.svg" class="SliderArrowImage" alt="Imaginea urmatoare" width="48" height="60">
                     </a>
-                    <ol class="SliderPicker">
+
+                    <ol class="SliderPicker" id="sliderPicker">
                         <li class="SliderPickerItem Active">
                             <a href="#" class="SliderPickerLink" title="Mergi la imaginea cu numarul @todo">
                                 <span class="SliderPickerText">Imaginea @todo</span>
@@ -208,19 +209,10 @@
                                 <span class="SliderPickerText">Imaginea @todo</span>
                             </a>
                         </li>
-                        <li class="SliderPickerItem">
-                            <a href="#" class="SliderPickerLink" title="Mergi la imaginea cu numarul @todo">
-                                <span class="SliderPickerText">Imaginea @todo</span>
-                            </a>
-                        </li>
-                        <li class="SliderPickerItem">
-                            <a href="#" class="SliderPickerLink" title="Mergi la imaginea cu numarul @todo">
-                                <span class="SliderPickerText">Imaginea @todo</span>
-                            </a>
-                        </li>
+                       
                     </ol>
                 </nav>
-                <ol class="SliderList">
+                <ol class="SliderList" id="sliderList">
                     <li class="SliderItem Active">
                         <a href="#" class="SliderLink" title="Vezi articolul despre @ToDO">
                             <picture class="SliderImage">
@@ -254,9 +246,20 @@
                             <picture class="SliderImage">
                                
 
-                            <source type="image/webp" srcset="./images/slider-img-1.webp" media="(min-width:750px)" />
-                            <source type="image/webp" srcset="./images/slider-img-1-mobile.webp" media="(min-width:100px)" />
-                            <img src="./images/slider-img-1-mobile.png" alt="Imagine despre @Todo" width="525" height="300" itemprop="image"> 
+                            <source type="image/webp" srcset="./images/slider-img-2.webp" media="(min-width:750px)" />
+                            <source type="image/webp" srcset="./images/slider-img-2-mobile.webp" media="(min-width:100px)" />
+                            <img src="./images/slider-img-2-mobile.png" alt="Imagine despre @Todo" width="525" height="300" itemprop="image"> 
+                            </picture>
+                        </a>
+                    </li>
+                    <li class="SliderItem  ">
+                        <a href="#" class="SliderLink" title="Vezi articolul despre @ToDO">
+                            <picture class="SliderImage">
+                               
+
+                            <source type="image/webp" srcset="./images/slider-img-3.webp" media="(min-width:750px)" />
+                            <source type="image/webp" srcset="./images/slider-img-3-mobile.webp" media="(min-width:100px)" />
+                            <img src="./images/slider-img-3-mobile.png" alt="Imagine despre @Todo" width="525" height="300" itemprop="image"> 
                             </picture>
                         </a>
                     </li>
@@ -291,244 +294,306 @@
             <section class="BookGrid">
                 <h2 class="BookGridTitle">Precomenzi</h2>
                 <ol class="BookGridList">
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                            <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
-                            <span class="Availability "><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration" ><strong>24</strong>h</span></span>
+                            <span class="Availability "  itemprop="availability" href="https://schema.org/InStock"><span class="AvailableTag" >In stoc</span><span class="AvailabilityDuration" ><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                        </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem AvailabilityPreorder ">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem AvailabilityPreorder " itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
-                            <span class="Availability"><span class="AvailableTag">Precomanda</span><span class="AvailabilityDuration" title="Daca faci astazi comanda vei avea cartea in 24h"><strong>24</strong>h</span></span>
+                            <span class="Availability" itemprop="availability" href="https://schema.org/BackOrder"><span class="AvailableTag">Precomanda</span><span class="AvailabilityDuration" title="Daca faci astazi comanda vei avea cartea in 24h"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem AvailabilityLimited">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem AvailabilityLimited" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
-                            <span class="Availability "><span class="AvailableTag"><span class="ScreenReaders">Stoc</span>Limitat</span><span class="AvailabilityDuration" ><strong>24</strong>h</span></span>
+                            <span class="Availability " itemprop="availability" href="https://schema.org/LimitedAvailability"><span class="AvailableTag"><span class="ScreenReaders">Stoc limitat</span>Limitat</span><span class="AvailabilityDuration" ><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem AvailabiliyUnavailable">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem AvailabiliyUnavailable" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52 </strong><span> .00</span></span><span> lei</span></span>
-                            <span class="Availability "><span class="AvailableTag">Indisponibil</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
+                            <span class="Availability " itemprop="availability" href="https://schema.org/OutOfStock"><span class="AvailableTag">Indisponibil</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability AvailabilityInStock"><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability "><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability "><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+                       
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability "><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability "><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability "><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
                
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability "><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration" ><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem AvailabilityPreorder ">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem AvailabilityPreorder " itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability"><span class="AvailableTag">Precomanda</span><span class="AvailabilityDuration" title="Daca faci astazi comanda vei avea cartea in 24h"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem AvailabilityLimited">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem AvailabilityLimited" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability "><span class="AvailableTag"><span class="Hidden">Stoc</span>Limitat</span><span class="AvailabilityDuration" ><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem AvailabiliyUnavailable">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem AvailabiliyUnavailable" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52 </strong><span> .00</span></span><span> lei</span></span>
                             <span class="Availability "><span class="AvailableTag">Indisponibil</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability AvailabilityInStock"><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability "><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability "><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability "><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability "><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
-                    <li class="BookGridItem Discounted AvailabilityInStock">
-                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo">
-                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail">
-                            <h3 class="BookTitle">Information Arhitecture, 4e</h3>
-                            <h4 class="BookAuthor">Louis Rosenfeld & co.</h4>
-                            <p class="BookDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                    <li class="BookGridItem Discounted AvailabilityInStock" itemscope itemtype="https://schema.org/Book">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
+                        <a href="#" class="BookGridLink" title="Vezi pagina cu detalii pentru cartea @todo" itemprop="url">
+                            <img src="images/carte.webp"width="300" height="451" alt="Coperta cartii @Todo" class="BookGridThumbnail" itemprop = "image">
+                            <h3 class="BookTitle" itemprop="name">Information Arhitecture, 4e</h3>
+                            <h4 class="BookAuthor" itemprop="author">Louis Rosenfeld & co.</h4>
+                            <p class="BookDescription" itemprop="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis beatae cum ipsum minima reiciendis aspernatur aperiam, id, accusantium natus doloribus reprehenderit harum impedit, expedita incidunt.</p>
+                             <div class="Offer" itemscope itemtype="https://schema.org/Offer">
                            <span class="Price"><span><strong>52</strong><span>.00</span></span><span>lei</span></span>
                             <span class="Availability "><span class="AvailableTag">In stoc</span><span class="AvailabilityDuration"><strong>24</strong>h</span></span>
                             <span class="Discount">-10%</span>
+                            </div>
                         </a>
 
                     </li>
@@ -634,7 +699,7 @@
                                 <input type="text" class="Input NewsletterInput" maxlength="200" placeholder="Introdu numele tau..." required="required" id="newsletter-lastname" name="newsletter-lastname"/>
                             </label>
                             <button class="SubmitButton NewsletterSubmit" type="submit">
-                            <span>Abonare</span>
+                            <span>Aboneaza-te acum  &raquo;</span>
                             </button>
                         </fieldset>
                     </form>
