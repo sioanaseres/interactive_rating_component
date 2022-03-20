@@ -38,3 +38,7 @@ sliderPickerList.querySelectorAll(".SliderPickerLink").forEach((element, index) 
     let position = index + 1 ;
     selectSlide(position)
 })})
+
+if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('service-worker.js');
+}

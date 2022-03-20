@@ -31,7 +31,7 @@ input, button, textarea, select { font: inherit; }
 
 strong { font-weight: 900; }
 
-a {color:#799900}
+a {color:#627500}
 
 a:hover { color: #000;}
 
@@ -39,7 +39,7 @@ a:hover { color: #000;}
 clip: rect(0,0,0,0); white-space: nowrap; border-width: 0}
 
 /*******************************/ 
-.Button {display: block; border-radius: 0.5em; font-weight: normal; text-align: center; padding: 0.5em 1em; background-color: #799900; color: #fff; text-transform: uppercase; text-decoration: none;
+.Button {display: block; border-radius: 0.5em; font-weight: normal; text-align: center; padding: 0.5em 1em; background-color: #627500; color: #fff; text-transform: uppercase; text-decoration: none;
 &:hover { background: #000; color: #fff;}}
 
 @keyframes fadeIn {
@@ -55,7 +55,7 @@ clip: rect(0,0,0,0); white-space: nowrap; border-width: 0}
 
 .Container {}
     .Header {display:flex; height: 2.75rem; position: sticky; top: 0; background: #fff; box-shadow: 0 1em 1em rgba(0,0,0,0.1); z-index: 2;}
-        .Logo {display: block; position: relative; z-index: 1; height: 3.75rem;  background: #799900; box-shadow: 0 0.5em 0.5em rgba(0,0,0,0.1); }
+        .Logo {display: block; position: relative; z-index: 1; height: 3.75rem;  background: #627500; box-shadow: 0 0.5em 0.5em rgba(0,0,0,0.1); }
             .LogoImage {display: block; width: 3.75rem; height: 3.75rem;}
         .TriggerButton {display: block;  padding: 0.375rem; margin: 0; background: transparent; appearance: none; border: none; cursor: pointer;
 			&:hover {background: #eee; } }
@@ -70,7 +70,7 @@ clip: rect(0,0,0,0); white-space: nowrap; border-width: 0}
             .FieldSet {display: block; border: none; padding: 0; position: relative;}
                 .Legend {display: none;}
 					.Label {display: block; cursor: pointer;
-						&:hover {color:#799900 ;} 
+						&:hover {color:#627500 ;} 
 					}
                     	.SearchLabel {}
                         	.SearchLabelText {}
@@ -88,12 +88,12 @@ clip: rect(0,0,0,0); white-space: nowrap; border-width: 0}
 			.MainMenuList {display: block; padding: 0; margin: 0;}
 				.MainMenuItem {display: block;}
 					.MainMenuLink {display: block; padding: 0.5em 1em; color: #222; background: transparent; font-size: 1.5em; font-weight: 700; text-decoration: none;
-						&:hover {color: #799900; background: white;}
+						&:hover {color: #627500; background: white;}
 					}
 					.MainMenuSublist {display: block ;	}
 						.MainMenuSubitem {display: block;}
 							.MainMenuSublink {display: block; padding: 0.75em 1.5em; text-decoration: none; color: #222; background: transparent;
-								&:hover {color: #799900; background: white;}
+								&:hover {color: #627500; background: white;}
 							}
 
     .Main { }
@@ -120,9 +120,9 @@ clip: rect(0,0,0,0); white-space: nowrap; border-width: 0}
 					@media (min-width: 750px) {	width: 100%; justify-content: center;}
 				}
 					.SliderPickerItem {display: block; margin: 0.5rem 2px 0.5rem 0 ;}
-						.SliderPickerLink{display: block; width: 2em; height: 2em; border: 2px solid #8fb300; border-radius: 50%; 
-							&:hover { border-color: #000; background: #8fb300;}
-							.Active & {background-color:#8fb300;}
+						.SliderPickerLink{display: block; width: 2em; height: 2em; border: 2px solid #627500; border-radius: 50%; 
+							&:hover { border-color: #000; background: #627500;}
+							.Active & {background-color:#627500;}
 							.Active &:hover { background-color: #000;}	}
 							.SliderPickerText {display:block; white-space: nowrap; overflow: hidden; width: 0;}
 
@@ -167,7 +167,7 @@ clip: rect(0,0,0,0); white-space: nowrap; border-width: 0}
 							width: 100%; height: auto; max-width: 300px; margin: auto;
 						}}
 						.BookTitle {display: block; margin: 0.25rem 0; font-size: 1rem; line-height: 1.5em;}
-						.BookAuthor {display: block; margin: 0.25rem 0; font-weight: normal; font-size: 1rem; text-transform: uppercase; color: #799900; line-height: 1.5em;}
+						.BookAuthor {display: block; margin: 0.25rem 0; font-weight: normal; font-size: 1rem; text-transform: uppercase; color: #627500; line-height: 1.5em;}
 						.BookDescription {display: block; margin: 0.25rem 0;
 							@media (min-width:480px) {	overflow: hidden;}
 							@media (min-width:650px) {	display: none;}
@@ -238,21 +238,21 @@ clip: rect(0,0,0,0); white-space: nowrap; border-width: 0}
 							&:after {content: "\203A"; display: block; position: absolute; right: 0; top: 0; padding: 0.25em; font-size: 2em; line-height: 0.5em;}
 							&:hover {background: #ddd; color: #000;}
 						.FooterCopy & { 
-							@media (min-width:700px) {border: none; padding: 0; text-transform: none; color: #799900; white-space: nowrap; padding: 1em;
+							@media (min-width:700px) {border: none; padding: 0; text-transform: none; color: #627500; white-space: nowrap; padding: 1em;
 							&:after{display: none;}}
 						}
 						} 
 					.FooterSocialList {display: flex; flex-wrap:wrap; list-style-type: none; margin: 0; padding: 0 1em;}
 						.FooterSocialItem {display: block; margin: 0 1rem 1rem 0;}
 							.FooterSocialLink {display: block; padding: 0.25rem; background: #ccc; border-radius: 0.25rem; margin: 1rem;
-							&:hover{ background: #799900;}}
+							&:hover{ background: #627500;}}
 								.FooterSocialLink svg {display: block; width: 2.25rem; height: 2.25rem;
 								&* {fill: white;}}
 					.FooterNewsletterForm {display: block; padding: 0 1em;}
 						.NewsletterLabel {display: block ; padding: 0 0 1em;}		
 							.NewsletterLabelText {}	
 							.NewsletterLabelInput {}
-						.NewsletterSubmit {display: block; padding: 1em; background: #799900; color: white; text-transform: uppercase; border: none; width: 100%; font-weight: bold; border-radius: 1em; 
+						.NewsletterSubmit {display: block; padding: 1em; background: #627500; color: white; text-transform: uppercase; border: none; width: 100%; font-weight: bold; border-radius: 1em; 
 						&:hover{color: white; background: black; cursor: pointer;} }			
 
 
