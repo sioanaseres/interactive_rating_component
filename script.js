@@ -1,44 +1,34 @@
-let menuTriggerButton = document.getElementById("menuTrigger");
-let mainMenuNav = document.getElementById("mainMenu");
+"use strict"
+const btnSubmit = document.getElementById("buttonSubmit");
+const container = document.querySelector(".container");
+const containerAnswer = document.querySelector(".containerAnswer");
+const output = document.querySelector(".output");
+const options = document.querySelectorAll(".option");
 
-menuTriggerButton.addEventListener("click", function() {
-    mainMenuNav.classList.toggle("Active");
-    menuTriggerButton.classList.toggle("Active");
-}, true)
+
+btnSubmit.addEventListener("click", function(e){
+    e.preventDefault();
+    container.classList.add("hidden");
+    containerAnswer.classList.remove("hidden");
+    options.forEach(op => {
+        op.classList.remove("selected");
+    })
+})
+
+containerAnswer.addEventListener("click", function(){
+    container.classList.remove("hidden");
+    containerAnswer.classList.add("hidden");
+   
+})
 
 
-let previousSlideLink = document.getElementById("previousSlide");
-let nextSlideLink = document.getElementById("nextSlide");
-let sliderPickerList = document.getElementById("sliderPicker");
+options.forEach((op,index) => {
 
-let currentSlide = 1;
-let sliderList = document.getElementById("sliderList"); 
-let allSlides = sliderList.childElementCount;
+op.addEventListener("click", function(){
+    op.classList.add("selected");
+    output.innerText = ` You selected ${index + 1} out of 5`
 
- function selectSlide(position){
-    sliderList.children[currentSlide -1].classList.remove("Active");
-    sliderPickerList.children[currentSlide -1].classList.remove("Active");
-    currentSlide = position;
-    sliderList.children[currentSlide - 1].classList.add("Active");
-    sliderPickerList.children[currentSlide - 1].classList.add("Active");
-}
+})
 
-previousSlideLink.addEventListener("click", function(){
-   let position = (currentSlide === 1) ? allSlides : (currentSlide - 1);
-   selectSlide(position)
-   }, true)
+})
 
-nextSlideLink.addEventListener("click", function() {
-    let position = (currentSlide === allSlides) ? 1 : (currentSlide + 1) ;
-    selectSlide(position)
-}, true)
-
-sliderPickerList.querySelectorAll(".SliderPickerLink").forEach((element, index) =>{
-    element.addEventListener("click", function(){
-    let position = index + 1 ;
-    selectSlide(position)
-})})
-
-if ('serviceWorker' in navigator) {
-	navigator.serviceWorker.register('service-worker.js');
-}
